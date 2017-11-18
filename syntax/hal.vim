@@ -6,22 +6,16 @@ if exists("b:current_syntax")
   finish
 endif
 
+source $VIMRUNTIME/syntax/c.vim
+unlet b:current_syntax
+
+"hidl specific keywords
 syn keyword hidlKeywords interface package extends import generates
-syn keyword hidlKeywords struct union enum typedef
 
-syn keyword hidlType uint8_t int8_t uint16_t int16_t 
-syn keyword hidlType uint32_t int32_t uint64_t int64_t
-syn keyword hidlType float double bool string
-syn match hidlType "vec<.*>" contains=hidlPrimitiveType
-
-"single line
-syn match hidlComment '//.*'
-"multi-line
-syn region hidlComment start='/\*' end='\*/'
-
-"syn match hidlParameterslessFunction '\w\+()'
-"syn match hidlFunction '\w\+(\w\+\s\+\w\+)' contains=hidlPrimitiveType,hidlVector
+" Some hidl specific generic types of the form name<T>
+syn keyword hidlType vec bitfield fmq_sync fmq_unsync 
 
 hi def link hidlKeywords Keyword
 hi def link hidlType Type
-hi def link hidlComment Comment
+
+let b:current_syntax = "hal"
