@@ -7,6 +7,7 @@ if exists("b:current_syntax")
 endif
 
 syn keyword hidlKeywords interface package extends import generates
+syn keyword hidlKeywords struct union enum typedef
 
 syn keyword hidlType uint8_t int8_t uint16_t int16_t 
 syn keyword hidlType uint32_t int32_t uint64_t int64_t
