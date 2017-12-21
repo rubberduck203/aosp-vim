@@ -16,9 +16,15 @@ syn match rcInterpolator '${'
 syn match rcInterpolator '}'
 syn region rcInterpolate matchgroup=rcInterpolator start='${' end='}' contains=rcInterpolator
 
+syn match rcPropertyTrigger '='
+syn match rcPropertyTrigger 'property:'
+syn region rcProperty matchgroup=rcPropertyTrigger start='property:' end='=' contains=rcPropertyTrigger
+
 hi def link rcComment Comment
 hi def link rcImport Include
 hi def link rcInterpolator Operator
 hi def link rcInterpolate Identifier
+hi def link rcPropertyTrigger Operator
+hi def link rcProperty  Identifier
 
 let b:current_syntax = "rc"
