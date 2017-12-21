@@ -122,6 +122,8 @@ syn match rcPropertyTrigger '='
 syn match rcPropertyTrigger 'property:'
 syn region rcProperty matchgroup=rcPropertyTrigger start='property:' end='=' contains=rcPropertyTrigger
 
+syn match rcOperator '&&'
+
 hi def link rcComment Comment
 hi def link rcImport Include
 hi def link rcKeyword Statement
@@ -132,6 +134,8 @@ hi def link rcTrigger Type
 hi def link rcInterpolator Operator
 hi def link rcInterpolate Identifier
 hi def link rcPropertyTrigger Operator
-hi def link rcProperty  Identifier
+hi def link rcProperty Identifier
+
+hi def link rcOperator Operator
 
 let b:current_syntax = "rc"
