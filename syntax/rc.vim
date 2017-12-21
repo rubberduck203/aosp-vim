@@ -8,10 +8,17 @@ endif
 
 syn match rcComment '#.*'
 syn keyword rcImport import
-syn region rcInterpolate start='${' end='}' 
+
+" Order matters here. 
+" We must declatre the identifier region after the operators in order to get the identifier highlight.
+" The matchgroup allows the operators to not be over-riden by the region while still allowing the end match.
+syn match rcInterpolator '${'
+syn match rcInterpolator '}'
+syn region rcInterpolate matchgroup=rcInterpolator start='${' end='}' contains=rcInterpolator
 
 hi def link rcComment Comment
 hi def link rcImport Include
+hi def link rcInterpolator Operator
 hi def link rcInterpolate Identifier
 
 let b:current_syntax = "rc"
