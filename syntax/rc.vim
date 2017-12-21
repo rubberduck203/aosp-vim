@@ -11,6 +11,34 @@ syn keyword rcImport import
 syn keyword rcKeyword on
                     \ service
 
+" options are modifiers to services
+syn keyword rcOption 
+                    \ console
+                    \ critical
+                    \ disabled
+                    \ setenv
+                    \ socket
+                    \ file
+                    \ user
+                    \ group
+                    \ capabilities
+                    \ setrlimit
+                    \ seclabel
+                    \ oneshot
+                    \ class
+                    \ onrestart
+                    \ writepid
+                    \ priority
+                    \ namespace
+                    \ oom_score_adjust 
+                    \ shutdown
+
+
+"animation class
+"memcg.swappiness
+"memcg.soft_limit_in_bytes
+"memcg.limit_in_bytes
+
 " discovered by grepping init.rc for the word trigger
 " keywords struggle with non-alph characters, so we match instead
 syn match rcTrigger /\scharger[\s\n]/
@@ -42,7 +70,10 @@ syn region rcProperty matchgroup=rcPropertyTrigger start='property:' end='=' con
 hi def link rcComment Comment
 hi def link rcImport Include
 hi def link rcKeyword Statement
+hi def link rcOption Statement
 hi def link rcTrigger Type
+
+
 
 hi def link rcInterpolator Operator
 hi def link rcInterpolate Identifier
