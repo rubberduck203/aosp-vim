@@ -33,11 +33,12 @@ syn keyword rcOption
                     \ oom_score_adjust 
                     \ shutdown
 
-
-"animation class
-"memcg.swappiness
-"memcg.soft_limit_in_bytes
-"memcg.limit_in_bytes
+"no args, so can be end of line
+syn match rcOption /\sanimation class[\s\n]/
+"these have value args, so can't be end of line
+syn match rcOption /\smemcg.swappiness\s/
+syn match rcOption /\smemcg.soft_limit_in_bytes\s/
+syn match rcOption /\smemcg.limit_in_bytes\s/
 
 " discovered by grepping init.rc for the word trigger
 " keywords struggle with non-alph characters, so we match instead
