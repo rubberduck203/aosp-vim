@@ -7,6 +7,10 @@ if exists("b:current_syntax")
 endif
 
 syn match rcComment '#.*'
+syn keyword rcImport import
 
+
+hi def link rcComment Comment
+hi def link rcImport Include
 
 let b:current_syntax = "rc"
