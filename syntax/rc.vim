@@ -11,21 +11,17 @@ syn keyword rcImport import
 syn keyword rcKeyword on
                     \ service
 
-" options are modifiers to services
+"Options are service modifiers
 syn keyword rcOption 
-                    \ console
                     \ critical
                     \ disabled
                     \ setenv
                     \ socket
-                    \ file
-                    \ user
                     \ group
                     \ capabilities
                     \ setrlimit
                     \ seclabel
                     \ oneshot
-                    \ class
                     \ onrestart
                     \ writepid
                     \ priority
@@ -33,6 +29,13 @@ syn keyword rcOption
                     \ oom_score_adjust 
                     \ shutdown
 
+" THese are common in file paths and as parts of other names
+syn match rcOption /\sclass\s/
+syn match rcOption /\sconsole[\s\n]/
+syn match rcOption /\sfile\s/
+syn match rcOption /\suser\s/
+
+" These can't be processed as a keyword
 "no args, so can be end of line
 syn match rcOption /\sanimation class[\s\n]/
 "these have value args, so can't be end of line
@@ -57,6 +60,57 @@ syn match rcTrigger /\sfirmware_mounts_complete[\s\n]/
 syn match rcTrigger /\searly-boot[\s\n]/
 syn match rcTrigger /\sboot[\s\n]/
 
+"Commands are... commands... that can be executed in a trigger
+" This is a naive implementation. It would be better to make a trigger a region and only activate these inside.
+syn keyword rcCommand
+                    \ bootchart
+                    \ chmod
+                    \ chown
+                    \ class_start
+                    \ class_stop
+                    \ class_reset
+                    \ class_restart
+                    \ copy
+                    \ domainname
+                    \ exec
+                    \ exec_background
+                    \ exec_start
+                    \ export
+                    \ hostname
+                    \ ifup
+                    \ insmod
+                    \ load_all_props
+                    \ load_persist_props
+                    \ loglevel
+                    \ mkdir
+                    \ mount_all
+                    \ mount 
+                    \ restart
+                    \ restorecon 
+                    \ restorecon_recursive
+                    \ rm
+                    \ rmdir
+                    \ readahead
+                    \ setprop
+                    \ setrlimit
+                    \ stop
+                    \ swapon_all
+                    \ symlink
+                    \ sysclktz
+                    \ umount
+                    \ verity_load_state
+                    \ verity_update_state
+                    \ wait
+                    \ wait_for_prop
+                    \ installkey
+                    \ init_user0
+
+" These are common in file paths and as parts of other names
+syn match rcCommand /\strigger\s/
+syn match rcCommand /\senable[\s\n]/
+syn match rcCommand /\sstart\s/
+syn match rcCommand /\swrite\s/
+
 " Order matters here. 
 " We must declatre the identifier region after the operators in order to get the identifier highlight.
 " The matchgroup allows the operators to not be over-riden by the region while still allowing the end match.
@@ -72,9 +126,8 @@ hi def link rcComment Comment
 hi def link rcImport Include
 hi def link rcKeyword Statement
 hi def link rcOption Statement
+hi def link rcCommand Keyword
 hi def link rcTrigger Type
-
-
 
 hi def link rcInterpolator Operator
 hi def link rcInterpolate Identifier
