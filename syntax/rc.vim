@@ -8,9 +8,10 @@ endif
 
 syn match rcComment '#.*'
 syn keyword rcImport import
-
+syn region rcInterpolate start='${' end='}' 
 
 hi def link rcComment Comment
 hi def link rcImport Include
+hi def link rcInterpolate Identifier
 
 let b:current_syntax = "rc"
