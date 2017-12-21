@@ -123,6 +123,8 @@ syn match rcPropertyTrigger 'property:'
 syn region rcProperty matchgroup=rcPropertyTrigger start='property:' end='=' contains=rcPropertyTrigger
 
 syn match rcOperator '&&'
+syn match rcNumber /[-]\?\d\+/
+
 
 hi def link rcComment Comment
 hi def link rcImport Include
@@ -137,5 +139,6 @@ hi def link rcPropertyTrigger Operator
 hi def link rcProperty Identifier
 
 hi def link rcOperator Operator
+hi def link rcNumber Number
 
 let b:current_syntax = "rc"
