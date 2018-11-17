@@ -16,13 +16,8 @@ Documenation for most of the keywords and syntax can be found in the [Init.rc RE
 
 ## Installation
 
-Symlink the contents of each directory into the corresponding directory under `~/.vim/`.
+### Pathogen
 
 ```bash
-ln -s /path/to/repo/ftdetect/hal.vim ~/.vim/ftdetect/hal.vim
-ln -s /path/to/repo/ftdetect/bp.vim ~/.vim/ftdetect/bp.vim
-ln -s /path/to/repo/ftdetect/rc.vim ~/.vim/ftdetect/rc.vim
-
-ln -s /path/to/repo/syntax/hal.vim ~/.vim/syntax/hal.vim
-ln -s /path/to/repo/syntax/rc.vim ~/.vim/syntax/rc.vim
+git clone https://github.com/rubberduck203/aosp-vim.git ~/.vim/bundle/aosp
 ```
