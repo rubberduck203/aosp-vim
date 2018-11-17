@@ -21,3 +21,10 @@ Documenation for most of the keywords and syntax can be found in the [Init.rc RE
 ```bash
 git clone https://github.com/rubberduck203/aosp-vim.git ~/.vim/bundle/aosp
 ```
+
+### Vim 8
+
+```bash
+mkdir -p ~/.vim/pack/plugins/start
+git clone https://github.com/rubberduck203/aosp-vim.git ~/.vim/pack/plugins/start/aosp
+```
